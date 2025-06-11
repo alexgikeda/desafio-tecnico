@@ -1,0 +1,6 @@
+@OperadoraServiceAPI_HostAddress = http://localhost:5083
+
+GET {{OperadoraServiceAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

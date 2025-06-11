@@ -1,0 +1,10 @@
+<mat-toolbar class=".mat-toolbar">
+  <button mat-icon-button aria-label="Home" [routerLink]="['']">
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-button aria-label="Operadoras" [routerLink]="['/Operadora']">Operadoras</button>
+  <button mat-button aria-label="Contratos" [routerLink]="['/Contrato']">Contratos</button>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

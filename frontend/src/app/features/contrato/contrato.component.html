@@ -1,0 +1,35 @@
+<mat-form-field class="select">
+  <mat-label>Operadora</mat-label>
+  <mat-select [(value)]="selectedOperadora" (selectionChange)="onOperadoraChange($event)">
+    @for (option of operadoras; track option) {
+      <mat-option [value]="option.id">{{ option.nome }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<mat-card class="card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <span>Contratos</span>
+    </mat-card-title>
+    <span class="spacer"></span>
+    <section>
+      <button mat-raised-button aria-label="Adicionar Contrato" (click)="add()">
+        <mat-icon>add</mat-icon>
+        <label>Adicionar</label>
+      </button>            
+    </section>    
+  </mat-card-header>
+  <mat-card-content>
+    <app-table-list [columns]="columns"
+                    [data]="dados"
+                    [showActions]="true"
+                    [showView]="true"
+                    [showEdit]="true"
+                    [showDelete]="true"
+                    [pageSizeOptions]="[5, 10, 20]"
+                    [onView]="view"
+                    [onEdit]="edit"
+                    [onDelete]="delete">
+    </app-table-list>    
+  </mat-card-content>
+</mat-card>

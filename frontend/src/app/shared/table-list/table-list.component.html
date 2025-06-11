@@ -1,0 +1,48 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="full-width-table" (matSortChange)="announceSortChange($event)">
+    <!-- Colunas Dinâmicas -->
+    <ng-container *ngFor="let col of columns" [matColumnDef]="col.key">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> {{ col.header }} </th>
+
+      @if (col.type === 'currency') {
+        <td mat-cell *matCellDef="let row"> {{ row[col.key] | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</td>
+      }
+      @else if (col.type === 'date') {
+        <td mat-cell *matCellDef="let row"> {{ row[col.key] | date:'dd/MM/yyyy' }} </td>
+      }
+      @else if (col.type === 'decimal') {
+        <td mat-cell *matCellDef="let row"> {{ row[col.key] | number:'1.2-2' }} </td>
+      }
+      @else {
+        <td mat-cell *matCellDef="let row"> {{ row[col.key] }} </td>
+      }
+    </ng-container>
+
+    <!-- Coluna de Ações -->
+    <ng-container matColumnDef="actions" *ngIf="showActions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="view(row)" aria-label="Visualizar" *ngIf="showView">
+          <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button (click)="edit(row)" aria-label="Editar" *ngIf="showEdit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete(row)" aria-label="Excluir" *ngIf="showDelete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Cabeçalhos e linhas -->
+    <tr class="text-center" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr class="text-center" mat-no-data-row *matNoDataRow>
+      <td class="no-data-cell" [attr.colspan]="displayedColumns.length">
+        Nenhum resultado encontrado
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons></mat-paginator>
+</div>

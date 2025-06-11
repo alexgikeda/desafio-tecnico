@@ -1,0 +1,89 @@
+<form [formGroup]="form" class="example-form" (ngSubmit)="onSubmit()">
+  <h2 mat-dialog-title> {{ title }}</h2>
+  <mat-dialog-content class="mat-typography example-full-width">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Nome da Filial</mat-label>
+              <input matInput formControlName="nomeFilial" appUppercase>
+              <mat-error>
+                Nome da Filial é obrigatório
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Plano Contratado</mat-label>
+              <input matInput formControlName="plano" appUppercase>
+              <mat-error>
+                Plano Contratado é obrigatório
+              </mat-error>              
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Data de Início</mat-label>
+              <input matInput [matDatepicker]="pickerInicio" formControlName="dataInicio">
+              <mat-hint>DD/MM/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+              <mat-datepicker #pickerInicio></mat-datepicker>
+              <mat-error>
+                Data de Início é obrigatória
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <mat-label>Data de Vencimento</mat-label>
+              <input matInput [matDatepicker]="pickerVencimento" formControlName="dataVencimento">
+              <mat-hint>DD/MM/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="pickerVencimento"></mat-datepicker-toggle>
+              <mat-datepicker #pickerVencimento></mat-datepicker>
+              <mat-error>
+                Data de Vencimento é obrigatória
+              </mat-error>
+            </mat-form-field>            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field floatLabel="always">
+              <mat-label>Valor Mensal</mat-label>
+              <input matInput type="number" class="example-right-align" placeholder="0" formControlName="valorMensal"/>
+              <span matTextPrefix>R$&nbsp;</span>
+              <mat-error>
+                Valor Mensal é obrigatório
+              </mat-error>               
+            </mat-form-field>            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Status</mat-label>
+              <input matInput formControlName="status" appUppercase>
+              <mat-error>
+                Status é obrigatório
+              </mat-error>               
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    @if (option === 'view') {
+      <button mat-button mat-dialog-close>Fechar</button>
+    } 
+    @else {
+      <button mat-raised-button type="submit" cdkFocusInitial>Confirmar</button>
+      <button mat-button mat-dialog-close class="warn">Cancelar</button>      
+    }
+  </mat-dialog-actions>
+</form>

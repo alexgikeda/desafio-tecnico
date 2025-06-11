@@ -1,0 +1,64 @@
+# === BACKEND (ASP.NET Core) ===
+
+# Build results
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.app
+*.pdb
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Rider
+.idea/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# ASP.NET Secrets
+secrets.json
+appsettings.*.json
+
+# Logs
+*.log
+
+# Entity Framework
+Migrations/
+
+# Temporary files
+*.tmp
+*.bak
+
+# === FRONTEND (Angular) ===
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Angular output
+dist/
+.angular/
+coverage/
+
+# IDE and Editor files
+*.swp
+*.swo
+*.sln
+
+# === COMMON ===
+
+# Database scripts (local only)
+database/
+
+# OS
+.DS_Store
+Thumbs.db
