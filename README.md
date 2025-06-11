@@ -40,3 +40,27 @@ Criar uma aplicação Full Stack para gestão de telecomunicações, onde seja p
 git clone https://github.com/alexgikeda/desafio-tecnico.git
 ```
 
+### 2. Navegue até o diretório do projeto
+
+- Na pasta "desafio-tecnico", navegue até o diretório "OperadoraServiceAPI"  usando os comandos:
+```
+cd backend
+```
+```
+cd OperadoraServiceAPI
+```
+
+### 3. Insira o comando abaixo no seu terminal para executar o projeto
+
+```
+dotnet run
+```
+
+### 4. Após a execução do comando, a aplicação estará disponível no seguinte endereço:
+
+```
+http://localhost:5083
+```
+- Abra o endereço acima no seu navegador e teste o projeto.
+
+
